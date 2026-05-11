@@ -1,6 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background: #37653b;
+  height: 100vh;
+
+  background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   color: white;
+}
+
+.menu,
+.game-container {
+  background-color: rgba(20, 20, 20, 0.95);
+
+  padding: 30px;
+
+  border-radius: 20px;
+
+  box-shadow: 0 0 25px rgba(0, 255, 120, 0.2);
+
   text-align: center;
-  font-family: Arial, sans-serif;
+
+  width: 450px;
+
+  border: 2px solid #00aa55;
+}
+
+h1 {
+  margin-bottom: 20px;
+
+  font-size: 36px;
+
+  color: #00ff88;
+
+  text-shadow: 0 0 10px rgba(0, 255, 120, 0.5);
+}
+
+.instrucoes {
+  background-color: #2a2a2a;
+
+  padding: 20px;
+
+  border-radius: 12px;
+
+  line-height: 1.8;
+
+  margin-bottom: 25px;
+
+  font-size: 16px;
+
+  border: 1px solid #555;
+}
+
+.botao {
+  display: inline-block;
+
+  text-decoration: none;
+
+  background-color: #00aa55;
+
+  color: white;
+
+  padding: 14px 28px;
+
+  border-radius: 10px;
+
+  font-size: 18px;
+
+  font-weight: bold;
+
+  transition: 0.3s;
+
+  border: 1px solid #00ff88;
+}
+
+.botao:hover {
+  background-color: #00cc66;
+
+  transform: scale(1.05);
+
+  box-shadow: 0 0 15px rgba(0, 255, 120, 0.4);
+}
+
+.info {
+  margin-bottom: 15px;
+
+  font-size: 22px;
+
+  font-weight: bold;
+
+  color: #d1d1d1;
+}
+
+#gameCanvas {
+  background-color: #111;
+
+  border: 4px solid #00cc66;
+
+  border-radius: 12px;
+
+  box-shadow: 0 0 20px rgba(0, 255, 120, 0.3);
+}
+
+.controles {
+  margin-top: 15px;
+
+  font-size: 16px;
+
+  color: #bdbdbd;
+}
+
+@media (max-width: 500px) {
+  .menu,
+  .game-container {
+    width: 95%;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  #gameCanvas {
+    width: 100%;
+    height: auto;
+  }
 }
