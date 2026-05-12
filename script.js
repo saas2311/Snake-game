@@ -99,18 +99,19 @@ function verificarColisao() {
     cabeca.x >= quantidade ||
     cabeca.y >= quantidade
   ) {
-    throw new Error("A cobra bateu na parede!");
+    reiniciarJogo("A cobra bateu na parede!");
+    return;
   }
 
   for (let i = 1; i < cobra.length; i++) {
     if (cabeca.x === cobra[i].x && cabeca.y === cobra[i].y) {
-      throw new Error("A cobra bateu nela mesma!");
+      reiniciarJogo("A cobra bateu nela mesma!");
+      return;
     }
   }
 }
-
-function reiniciarJogo() {
-  alert("Game Over! Pontuação: " + pontuacao);
+function reiniciarJogo(mensagem) {
+  alert(mensagem + "\nPontuação: " + pontuacao);
 
   cobra = [{ x: 10, y: 10 }];
 
@@ -124,21 +125,13 @@ function reiniciarJogo() {
 }
 
 function atualizarJogo() {
-  try {
-    desenharFundo();
+  if (!jogoIniciado) return;
 
-    moverCobra();
-
-    verificarColisao();
-
-    desenharComida();
-
-    desenharCobra();
-  } catch (erro) {
-    console.error(erro.message);
-
-    reiniciarJogo();
-  }
+  desenharFundo();
+  moverCobra();
+  verificarColisao();
+  desenharComida();
+  desenharCobra();
 }
 
 document.addEventListener("keydown", (evento) => {
@@ -161,6 +154,11 @@ document.addEventListener("keydown", (evento) => {
   }
 });
 
+let jogoIniciado = false;
+
 gerarComida();
 
-setInterval(atualizarJogo, 200);
+setTimeout(() => {
+  jogoIniciado = true;
+  setInterval(atualizarJogo, 120);
+}, 1000);
